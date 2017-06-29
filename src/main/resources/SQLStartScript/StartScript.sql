@@ -1,0 +1,72 @@
+DROP DATABASE IF EXISTS nettainment;
+
+CREATE DATABASE IF NOT EXISTS nettainment;
+
+USE nettainment;
+
+CREATE TABLE profile
+(
+  profile_id  INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  firstName   VARCHAR(30),
+  lastName    VARCHAR(30),
+  birthDate   DATE,
+  email       VARCHAR(30) UNIQUE ,
+  age         INT(30) DEFAULT NULL,
+  sex         VARCHAR(30),
+  city        VARCHAR(30),
+  phoneNumber VARCHAR(30),
+  photo LONGBLOB
+);
+
+CREATE TABLE users
+(
+  user_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  firstName VARCHAR(30) NOT NULL,
+  lastName VARCHAR(30) NOT NULL,
+  email VARCHAR(30) NOT NULL UNIQUE,
+  login VARCHAR(30) NOT NULL UNIQUE,
+  password VARCHAR(30) NOT NULL,
+  profile_id INT NOT NULL,
+  FOREIGN KEY (profile_id) REFERENCES profile (profile_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+CREATE TABLE  video (
+  video_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  video_date DATETIME NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  link VARCHAR(1024) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE  audio (
+  audio_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  link VARCHAR(1024) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE  books (
+  book_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  book_date DATETIME NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  link VARCHAR(1024) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE  news (
+  news_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  news_date DATETIME NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  text VARCHAR(1024) NOT NULL,
+  picture LONGBLOB,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+
+
