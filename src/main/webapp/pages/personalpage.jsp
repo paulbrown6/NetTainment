@@ -27,12 +27,12 @@
     <div id="sidebar">
         <ul>
             <li id="avatar"><img src="${pageContext.request.contextPath}/resources/images/132.png"></li>
-            <li><a href="hews.jsp">Новости</a></li>
+            <li><a href="news.jsp">Новости</a></li>
             <li><a href="messages.jsp">Сообщения</a></li>
             <li><a href="friends.jsp">Друзья</a></li>
             <li><a href="videos.jsp">Видео</a></li>
             <li><a href="books.jsp">Книги</a></li>
-            <li><a href="games.jsp">Игры</a></li>
+            <li><a href="music.jsp">Музыка</a></li>
             <li><a href="#">Настройки</a></li>
         </ul>
     </div>

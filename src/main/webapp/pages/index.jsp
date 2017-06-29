@@ -12,6 +12,6 @@
   </head>
 <body>
   <h1>Hello</h1>
-  <a href="${pageContext.request.contextPath}/pages/hews.jsp">Вход</a>
+  <a href="${pageContext.request.contextPath}/pages/login.jsp">Вход</a>
 </body>
 </html>
